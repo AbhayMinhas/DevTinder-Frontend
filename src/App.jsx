@@ -1,7 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Body from "./Body";
-import Login from "./login";
-import Profile from "./Profile";
+import Body from "./components/Body";
+import Login from "./components/Login";
+import Profile from "./components/Profile";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Feed from "./components/Feed";
 
 function App() {
   return (
@@ -10,26 +13,30 @@ function App() {
       {/* routes component is like a wrapper for different routes everyting is imported form react-router-dom */}
       {/* create a route in route  tag put path and then  also give element and this element will decide what will be rendered in out path 
     inside our element you have to give a component you can create a dummy component also*/}
-      <BrowserRouter basename="/">
-        <Routes>
-          <Route
-            path="/"
-            element={<Body />}
-          >
+      <Provider store={appStore}>
+        <BrowserRouter basename="/">
+          <Routes>
             <Route
-              path="/login"
-              element={<Login/>}
-            />
-            <Route
-              path="/profile"
-              element={<Profile/>}
-            />
-
-
-          </Route>
-        </Routes>
-      </BrowserRouter>
-      {/* <NavBar /> */}
+              path="/"
+              element={<Body />}
+            >
+              <Route
+                path="/"
+                element={<Feed />}
+              />
+              <Route
+                path="/login"
+                element={<Login />}
+              />
+              <Route
+                path="/profile"
+                element={<Profile />}
+              />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+        {/* <NavBar /> */}
+      </Provider>
     </>
   );
 }
