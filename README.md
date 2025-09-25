@@ -38,3 +38,5 @@ install multiple libraries whith space seperation in one go
 -Login and see if your data is coming properly in the store
 -NavBar should update as soon as user logs in 
 -Refactor out code to add contants file + create a components folder
+- You should not be able to access other routes without login
+- if token is not present, redirect user to the login page
