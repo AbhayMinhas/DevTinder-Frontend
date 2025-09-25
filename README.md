@@ -40,3 +40,4 @@ install multiple libraries whith space seperation in one go
 -Refactor out code to add contants file + create a components folder
 - You should not be able to access other routes without login
 - if token is not present, redirect user to the login page
+- Logout Feature

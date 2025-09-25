@@ -8,6 +8,7 @@ import { BASE_URL } from "../utils/constants";
 const Login = () => {
   const [emailId, setEmailId] = useState("abhay@gmail.com");
   const [password, setPassword] = useState("Abhay@123");
+  const [error,setError]=useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,6 +34,8 @@ const Login = () => {
       dispatch(addUser(res.data));
       return navigate("/");
     } catch (err) {
+      setError(err?.response?.data||"Something went wrong");
+      //always use optional chaining when you do like this
       console.error(err);
     }
   };
@@ -62,6 +65,9 @@ const Login = () => {
               />
             </fieldset>
           </div>
+
+          <p className="text-red-500">{error}</p>
+
           <div className="card-actions justify-center my-2">
             <button
               className="btn btn-primary"
