@@ -38,10 +38,19 @@ const Body = () => {
 
   return (
     <div>
+      <div className="fixed w-full z-50">
+
       <NavBar />
+      </div>
+      <main className="pt-18 pb-20 ">
+
       <Outlet />
+      </main>
       {/* Child route content will render here */}
+      <div className="fixed w-full z-50">
+
       <Footer />
+      </div>
     </div>
   );
 };

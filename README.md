@@ -41,3 +41,9 @@ install multiple libraries whith space seperation in one go
 - You should not be able to access other routes without login
 - if token is not present, redirect user to the login page
 - Logout Feature
+-Get the feed and add the feed in the store
+-build the user card on feed
+-Edit Profile Feature
+-Show Toast Message on save of profile
+
+- see all my connections 

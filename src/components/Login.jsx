@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
@@ -11,7 +11,10 @@ const Login = () => {
   const [error,setError]=useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const user= useSelector((store)=>store.user);
+  if(user){
+    return navigate("/");
+  }
   //this function will make an api call to login
   //because we are maing an api call we will be using a promis over there make your function async
   //To MAKE AN API CALL WE WILL USE A NPM PACKAGE KNOWN AS AXIOS
