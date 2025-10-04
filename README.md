@@ -46,4 +46,5 @@ install multiple libraries whith space seperation in one go
 -Edit Profile Feature
 -Show Toast Message on save of profile
 
-- see all my connections 
+- New Page - see all my connections 
+- New Page - see all my connection requests
