@@ -49,8 +49,10 @@ install multiple libraries whith space seperation in one go
 - New Page - see all my connections 
 - New Page - see all my connection requests
 - Feature - Accept/Reject Connection Request
-
-Remaining:
 - send/ignore the user card from Feed
 - Signup New User
 - E2ETesting
+
+Remaining:
+- can improve ui
+- can add meta descriptor in index.html it will help in seo.

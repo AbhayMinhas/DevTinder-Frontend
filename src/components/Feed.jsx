@@ -27,8 +27,12 @@ const Feed = () => {
   useEffect(() => {
     getFeed();
   }, []);
+  if(!feed)return;
+  if(feed.length<=0) return ( <p className="flex justify-center my-10 text-lg">
+      No more users in feed!
+    </p>)
   return (
-    feed && (<div className="flex justify-center my-10">
+    feed &&  (<div className="flex justify-center my-10">
       <UserCard user={feed[0]}/>
     </div>)
   );
