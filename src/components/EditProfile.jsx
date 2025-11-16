@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import axios from "axios";
 import UserCard from "./UserCard";
+import ProfleCard from "./ProfileCard";
 
 const EditProfile = () => {
   const user = useSelector((store) => store.user);
@@ -148,7 +149,7 @@ const EditProfile = () => {
             </div>
           </div>
         </div>
-        <UserCard
+        <ProfleCard
           user={{ firstName, lastName, photoUrl, age, gender, about }}
         />
       </div>
