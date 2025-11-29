@@ -8,20 +8,21 @@
 - Add NavBar component to App.jsx
 - Crete a NavBar.jsx seperate Component file
 - Install react router dom
-//routing can be created on the root level of your application
-//done on app.jsx
+  //routing can be created on the root level of your application
+  //done on app.jsx
 
 Body
-    NavBar
-    Route =/ =>Feed
-    Route =/login =>login
-    Route =/connections =>Connections
-    Route =/profile => Profile
+NavBar
+Route =/ =>Feed
+Route =/login =>login
+Route =/connections =>Connections
+Route =/profile => Profile
 -- >inside
+
 - Create Browser Router > Routes > Route=/Body > RouteChildren
-- Create an Outlet in your  Body Component
--Create a footer
--Create a login page
+- Create an Outlet in your Body Component
+  -Create a footer
+  -Create a login page
 - Install axios
 - CORS - install cors in backend => add middleware to app with configurations: origin,cretdentials:true
 - Whenever you're making API call so pass axios => {withCredentials: true}
@@ -30,23 +31,24 @@ Body
 -Install react-redux + @reduxjs/toolkit => configureStore => Provider => createSlice => add reducer to store
 
 - npm install @reduxjs/toolkit
-- npm install react-redux 
-- In oneline --> npm install @reduxjs/toolkit react-redux 
-install multiple libraries whith space seperation in one go
+- npm install react-redux
+- In oneline --> npm install @reduxjs/toolkit react-redux
+  install multiple libraries whith space seperation in one go
 
 -Add redux devtools in chrome
 -Login and see if your data is coming properly in the store
--NavBar should update as soon as user logs in 
+-NavBar should update as soon as user logs in
 -Refactor out code to add contants file + create a components folder
+
 - You should not be able to access other routes without login
 - if token is not present, redirect user to the login page
 - Logout Feature
--Get the feed and add the feed in the store
--build the user card on feed
--Edit Profile Feature
--Show Toast Message on save of profile
+  -Get the feed and add the feed in the store
+  -build the user card on feed
+  -Edit Profile Feature
+  -Show Toast Message on save of profile
 
-- New Page - see all my connections 
+- New Page - see all my connections
 - New Page - see all my connection requests
 - Feature - Accept/Reject Connection Request
 - send/ignore the user card from Feed
@@ -54,5 +56,66 @@ install multiple libraries whith space seperation in one go
 - E2ETesting
 
 Remaining:
+
 - can improve ui
 - can add meta descriptor in index.html it will help in seo.
+
+# Deployment
+
+- Signup on AWS
+- Launch instance
+- chmod 400 <secret>.pem
+- .pem is an extension which stores your secret key.
+- ssh -i "devTinder-secret.pem" ubuntu@ec2-16-171-234-108.eu-north-1.compute.amazonaws.com
+- logged into the machine using this ssh command
+- Install Node version 22.18.0
+- Git Clone
+
+-Frontend - npm install in the frontend project -> it installed the dependencies
+-npm run build
+-sudo apt update
+-sudo apt install nginx
+-sudo systemctl start nginx
+-sudo systemctl enable nginx
+-Copy code from dist(build files) to /var/www/html/
+-in frontend folder
+-sudo scp -r dist/\* /var/www/html/
+-Enable port :80 of your instance
+
+- Backend
+  - updated DB password
+    -allowed ec2 instance public IP on mongodb server
+  - npm install pm2@latest -g
+  - pm2 start npm --name "devTinder-backend" -- start
+  - pm2 logs
+  -pm2 list, pm2 flush <nameOfProcess>, pm2 delete <name>
+  -config nginx - /etc/nginx/sites-available/default
+  - restart nginx- sudo systemctl restart nginx
+  -Modify the BASEURL in frontend project to "/api"
+
+# Nginx config-
+
+Frontend = http://16.171.193.4/
+Backend = http://16.171.193.4:7777/
+
+Domain name= devtinder.com => 16.171.193.4
+
+Frontend = devtinder.com
+Backend = devtinder.com:7777
+
+nginx config:
+
+server_name 16.171.166.191;
+
+location /api/ {
+proxy_pass http://localhost:7777/;
+
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+
+    proxy_set_header Host $host;
+
+    proxy_cache_bypass $http_upgrade;
+
+}
