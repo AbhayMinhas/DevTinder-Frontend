@@ -1,7 +1,7 @@
 # DevTinder
 
 - Created a Vite+react project
-- Remove unacessary code and create a Hello world app
+- Remove unacessary code and create a app
 
 - Install tailwind CSS
 - Install Daisy UI
