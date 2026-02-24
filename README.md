@@ -133,7 +133,46 @@ proxy_pass http://localhost:7777/;
   - Give Access to AmazonSESFULLAccess
   - Amazon SES: Create an Identity
   - Verify your domain name
-  - Verify an email address
+  - Verify an email address identity
   - Install AWS SDK - v3
   - Code Example https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples
   - writing code...
+  - setup SesClient
+  - Access Credentials should be created in IAM under security credentials Tab
+  - Add the credentials to the .env file
+  - write code for SESClient
+  - Write code for Sending email address
+  - Make the email dynamic by passing more params to the run function.
+
+
+
+# Scheduling cron jobs in NodeJS
+    - Installing node-cron
+    - Learning about cron expressions syntax - crontab.guru
+    - Schedule a job
+    - date-fns
+    - Find all the uniqure email Id who have got connection request in Previous day
+    - Send Email
+    - Explore queue machenism to send bulk emails.
+    - Amazon SES Bulk Email
+    - Make sendEmail function dynamic
+    - bee-queue & bull npm packages (and BULL MQ with redis).
+
+
+# Razorpay Payment Gateway Integration
+    - Sign up on Razorpay & complete KYC
+    - Created a UI for premium page
+    - Creating an API for create order in backend
+    - add my key and secret in .env file
+    - Initialized Razorpay in utils
+    - creating order on Razorpay
+    - create Schema and model
+    - saved the order in payments collection
+    -make the api dynamic 
+    -https://razorpay.com/docs/payments/server-integration/nodejs/integration-steps/#1-build-integration
+    - Setup Razorpay webhook on your live Api
+    - Ref - https://github.com/razorpay/razorpay-node/tree/master/documents
+    
+    - Ref - https://razorpay.com/docs/webhooks/validate-test/
+    - Ref - https://razorpay.com/docs/webhooks/payments/
+    
