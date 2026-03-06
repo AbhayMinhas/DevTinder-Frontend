@@ -176,3 +176,28 @@ proxy_pass http://localhost:7777/;
     - Ref - https://razorpay.com/docs/webhooks/validate-test/
     - Ref - https://razorpay.com/docs/webhooks/payments/
     
+
+# Real Time Chat using WebSocket(socket.io)
+  - Build the UI for a chat window on /chat/:targetUserId 
+  - Setup socket.io in backend
+  - npm i socket.io
+  - Setup frontend socket.io-client
+  -Initialise the chat
+  -createSocketConnection
+  -Listen to events
+  -HW: Fix Securtiy Bug - can I send messages to a person who is not my friend. - Auth in web Sockets
+  -HW: Fix Bug: If not friend , then i should not be able to send message
+  -Hw: improve the UI
+  -HW: feat: Show Green Symbol when Online - [last Seen 2 hours ago]
+  -(wherever there is a connection that is established try to store this information for making the feature of last seen)
+  - Message array can grow alot so every time your api is fetching all those messages so limit those messages - HW: Limit messages on api calls when fetching from DB (50 messages per call)
+  - if Scroll up it will get more messages
+  -
+  -When user grow alot this we need to do so many things (backend system design concepts)
+ then you need multiple server and heavy ram in DB and use redis to store
+ in memory all the logs and chats and other stuff.
+ It is a system design problem after some point of time
+
+ - Online Chess and tic tak toe game can be made using socket.io
+ 
+
